@@ -1,0 +1,78 @@
+/*generic body removing padding and margins of browser*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+}
+
+header article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.memory-game {
+    width: 440px;
+    height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.message {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.memory-card {
+    width: calc(25% - 10px);
+    height: calc33.333% - 10px;
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card:active{
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.frontface, .backface {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+
+.frontface {
+    transform: rotateY(180deg);
+}
